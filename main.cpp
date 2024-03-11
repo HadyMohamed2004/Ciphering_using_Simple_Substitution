@@ -51,7 +51,7 @@ void simple_sub_cipher() {
         }
     }
     // print the encrypted text
-    cout <<"Encrypted Text: "<< newline << endl;
+    cout << "Encrypted Text: " << newline << endl;
 }
 
 
@@ -75,19 +75,26 @@ void simple_sub_decipher() {
         }
     }
     // print the encrypted text
-    cout << "Decrypted Text: "<< newline << endl;
+    cout << "Decrypted Text: " << newline << endl;
 }
 
 
 int main() {
-    int c;
-    cin>>c;
-    cin.ignore(256, '\n');
-
-    if (c==1){
-        simple_sub_cipher();
-    }else {
-        simple_sub_decipher();
+    while (true) {
+        cout << "choose 1 to cipher, 2 to decipher, 3 to exit";
+        int choice;
+        cin >> choice;
+        cin.ignore();
+        if (choice == 1) {
+            simple_sub_cipher();
+        } else if (choice == 2) {
+            simple_sub_decipher();
+        } else if (choice == 3) {
+            cout << "Goodbyr" << endl;
+            break;
+        } else {
+            cout << "enter a vaild input" << endl;
+        }
     }
     return 0;
 }
