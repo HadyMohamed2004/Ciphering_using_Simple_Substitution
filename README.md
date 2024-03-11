@@ -1,29 +1,31 @@
 # Simple Substitution Cipher
 
-This C++ program implements a simple substitution cipher, where each letter in the input text is replaced by a corresponding letter from a user-defined key.
+This C++ program implements a simple substitution cipher, where each letter in the input text is replaced by a corresponding letter from a user-defined key. The key must be unique and consist of exactly 5 distinct characters.
+
+## Installation
+
+This program is written in C++. To run the program, you need a C++ compiler. No additional dependencies are required.
 
 ## Usage
 
-To use the program, follow these steps:
-
-1. Compile the program using a C++ compiler.
-2. Run the compiled executable.
-3. Choose whether to encrypt or decrypt a sentence.
-4. Enter the sentence to be encrypted or decrypted.
-5. The program will output the result.
+Compile the program using a C++ compiler and run the executable. Follow the on-screen instructions to either cipher or decipher a text.
 
 ## Functionality
 
-- The `create_key` function generates a new alphabet based on the user-provided key.
-- The `simple_sub_cipher` function encrypts a given sentence using the generated key.
-- The `simple_sub_decipher` function decrypts a given sentence using the generated key.
+- `is_string_unique`: Checks if a given string contains unique characters.
+- `create_key`: Generates a new alphabet based on the user-provided key. The key must be unique and consist of exactly 5 distinct characters.
+- `simple_sub_cipher`: Encrypts a given sentence using the generated key.
+- `simple_sub_decipher`: Decrypts a given sentence using the generated key.
 
 ## Example
 
+Choose 1 to cipher, 2 to decipher, 3 to exit: 1
+Enter a unique Key: test
 Enter A Sentence to Cipher: hello world
-Encrypted Text: jyzzq qfxle
-
+Encrypted Text: itwwa abxva
 
 ## Notes
 
-- The program preserves the case of the input text and handles non-alphabetic characters by leaving them unchanged.
+- The program ensures that the key entered by the user is unique and consists of exactly 5 distinct characters.
+- The key is used to create a new alphabet for encryption and decryption.
+- To exit the program, the user can choose option 3.
