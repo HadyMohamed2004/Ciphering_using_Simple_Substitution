@@ -6,16 +6,66 @@ using namespace std;
 // initializing alphabets string
 string alpha = "abcdefghijklmnopqrstuvwxyz";
 
+// function to check uniqueness of a given string
+bool is_string_unique(string input) {
+    // initialize boolean variable as true
+    bool is_unique = true;
+
+    for (int i = 0; i < input.length(); i++) {
+        for (int j = i + 1; j < input.length(); j++) {
+            // if a character is repeated
+            if (input[i] == input[j]) {
+                // set boolean variable to false
+                is_unique = false;
+                return is_unique;
+            }
+        }
+    }
+
+    return is_unique;
+}
+
+
 // function that creates the new alphabet using the entered key
 string create_key() {
     string ciphering, key; // initializing 2 string: ciphering is the new alphabet, key
-    cout << "Enter Key:";       //prompt user to enter the key
-    getline(cin, key);    // get the entered key by user
+    bool is_unique = true;
 
-    // switch every character to lowercase
-    for (auto &x: key) {
-        x = tolower(x);
-    }
+    // Keep prompting until a unique key is entered
+    do {
+        cout << "Enter a unique Key:"; // prompt user to enter the key
+        getline(cin, key); // get the entered key by user
+
+
+        // switch every character to lowercase
+        for (auto &x: key) {
+            x = tolower(x);
+        }
+
+        // Check if the key is unique
+        is_unique = true;
+        for (int i = 0; i < key.length(); ++i) {
+            for (int j = i + 1; j < key.length(); ++j) {
+                if (key[i] == key[j]) {
+                    is_unique = false;
+                    break;
+                }
+            }
+            if (!is_unique) {
+                break;
+            }
+        }
+        // check if key is 5 letters
+        if (key.length() != 5) {
+            cout << "Key must have exactly 5 characters." << endl;
+            continue;
+        }
+
+        if (!is_unique) {
+            cout << "Key is not unique. Please enter a key with distinct characters." << endl;
+        }
+    } while (!is_unique || key.length() != 5);
+
 
     //initialize the first part of new alphabet
     ciphering = key;
@@ -28,7 +78,6 @@ string create_key() {
     }
     return ciphering; // return new alphabet (encrypted)
 }
-
 
 void simple_sub_cipher() {
     // initializing ciphering alphabet, str (used to enter line), newline (string of encrypted line)
